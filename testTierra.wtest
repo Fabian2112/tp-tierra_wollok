@@ -1,0 +1,42 @@
+import tierra.*
+
+describe "group of tests for pepita" {
+
+  test "pepita has initial energy" {
+    assert.equals(100, pepita.energy())
+  }
+}
+
+//Integrante 1
+describe "Testeo de baculo"{
+  test "baculo para guerrero con mucha vida"{
+    const guerrero = object {method tienePocaVida() = false}
+    assert.equals(250, baculo.poderOtorgado(guerrero))
+  }
+
+  test "baculo para guerrero con poca vida y tope"{
+    const guerrero = object {method tienePocaVida() = true}
+    assert.equals(400, baculo.poderOtorgado(guerrero))
+  }
+
+  test "baculo para poder base 100 y guerrero con poca vida"{
+    const guerrero = object {method tienePocaVida() = true}
+    baculo.poderBase(100)
+    assert.equals(200, baculo.poderOtorgado(guerrero))
+  }
+}
+
+
+//Integrante 2
+describe "Testeo de espada"{
+  test "espada si es magia elfica"{
+    const guerrero = object {method magiaQueRige() = magiaElfica}
+    assert.equals(250, espada.poderOtorgado(guerrero))
+  }
+
+  test "espada si es magia enana"{
+    const guerrero = object {method tienePocaVida() = true}
+    assert.equals(400, baculo.poderOtorgado(guerrero))
+  }
+
+}
